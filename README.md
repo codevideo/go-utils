@@ -5,7 +5,7 @@ So far, this is just a single Slack message util to be consumed in Netlify serve
 ## Usage
 
 ```shell
-go get github.com/codevideo/go-utils@v0.0.1
+go get github.com/codevideo/go-utils@v0.0.2
 ```
 
 ```go

@@ -1,22 +1,22 @@
 # go-utils
 
-So far, this is just a single slack message util to be consumed in Netlify serverless functions for the CodeVideo ecosystem.
+So far, this is just a single Slack message util to be consumed in Netlify serverless functions for the CodeVideo ecosystem.
 
 ## Usage
 
 ```shell
-go get github.com/codevideo/go-utils
+go get github.com/codevideo/go-utils@v0.0.1
 ```
 
 ```go
 package main
 
 import (
-    "github.com/codevideo/go-utils/slack"
+    utils "github.com/codevideo/go-utils/slack"
 )
 
 func main() {
-    err := slack.SendSlackMessage(slackMessageContent)
+    err := utils.SendSlackMessage(slackMessageContent)
 	if err != nil {
 		log.Printf("Error sending Slack message: %v", err)
 	}

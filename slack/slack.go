@@ -17,9 +17,13 @@ type SlackMessage struct {
 // SendSlackMessage sends a message to Slack using the webhook URL from the environment.
 // It only requires the message to be passed in.
 func SendSlackMessage(message string) error {
-	webhookURL := os.Getenv("CODEVIDEO_SLACK_WEBHOOK_URL")
+	webhookURL := os.Getenv("SLACK_WEBHOOK_URL")
 	if webhookURL == "" {
-		return fmt.Errorf("CODEVIDEO_SLACK_WEBHOOK_URL not set")
+		// Fallback to legacy env var for backward compatibility
+		webhookURL = os.Getenv("CODEVIDEO_SLACK_WEBHOOK_URL")
+	}
+	if webhookURL == "" {
+		return fmt.Errorf("SLACK_WEBHOOK_URL not set")
 	}
 
 	slackMsg := SlackMessage{Text: message}
